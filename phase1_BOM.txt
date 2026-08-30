@@ -1,0 +1,57 @@
+========================================================
+ PHASE 1 BILL OF MATERIALS
+ Dog Harness Audio Device - Remote Wi-Fi Playback
+ Goal: play pre-recorded voice clips to the dog over Wi-Fi
+ Volume target: MODERATE (no boost converter yet)
+ Build style: breadboard + jumper wires (solder later)
+========================================================
+
+
+--------------------------------------------------------
+ THINGS I OWN  (already have - used in Phase 1)
+--------------------------------------------------------
+
+[1] ESP32-S3 DevKitC-1 style board (N16R8)
+    - The black dual-USB-C board in your photo.
+    - 16MB flash + 8MB PSRAM. This is the brain + Wi-Fi.
+    - Flash storage holds your voice clips (no SD card needed).
+
+[2] MAX98357A amplifier breakout (Class D, I2S)
+    - DAC + amplifier in one chip. Takes I2S data, drives
+      the speaker directly.
+
+[3] 3W 4-ohm waterproof Mylar speaker
+    - Connects straight to the amp's + / - output.
+
+
+--------------------------------------------------------
+ THINGS I OWN  (have, but NOT used until later phases)
+--------------------------------------------------------
+
+[4] INMP441 I2S MEMS microphone
+    - For Phase 2 two-way audio. Not wired in Phase 1.
+
+[5] Spare battery (unspecified)
+    - Not used in Phase 1 (we run off USB power on the bench).
+    - IMPORTANT: before the wearable step, confirm this is a
+      single-cell 3.7V LiPo WITH a protection circuit. If it is
+      unprotected or a different chemistry, do not use it on the dog.
+
+
+--------------------------------------------------------
+ THINGS I STILL NEED TO BUY  (for Phase 1)
+-------------------------------------------------------
+
+  - Boost converter (3.7V -> 5V, >=2A)   [needed for full 3W]
+  - Protected 3.7V LiPo (proper spec)    [wearable power]
+  - TP4056 or MCP73831 charger module    [battery charging]
+  - Bulk capacitor 100-470uF + 0.1uF     [add with the boost]
+  - 2.4GHz U.FL antenna                  [IF board has U.FL connector]
+  - IP65 enclosure, gasket, vents, mount [wearable build]
+
+  These belong to the "add the boost / make it wearable" step.
+  Phase 1 runs fine on USB power at moderate volume without them.
+
+========================================================
+ END
+========================================================

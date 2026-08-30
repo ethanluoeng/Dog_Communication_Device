@@ -1,0 +1,51 @@
+8/25/2026:
+- Spent most of the day troubleshooting Platformio
+- Installed the CH343 driver (It was the wrong one and crashed my computer after I forced it on)
+
+ESP32-s3 devkit Day 1 Checklist:
+
+Specs:
+- 2 main processor cores (plus a small ultra-low-power co-processor) 
+- Internal memory: On-chip memory that cpu and access very quickly
+	- Internal ROM (384 KB) (can't program on it so doesn't really matter)
+	- Internal SRAM (512 KB) (volatile memory that can be quickly accessed by the CPU)
+	- RTC Memory (16 KB) (Static RAM that's persistent throughout deep sleep)
+- External memory: memory on the board
+	- Flash: 16 MB
+	- PSRAM: 8 MB
+	
+Chip Boot Control:
+	- 4 strapping pins: GPIO0, GPIO3, GPIO45, GPIO46
+	- During chip reset, hardware captures samples and stores the voltage level of strapping pins
+	- After the reset is released, the strapping pins work as normal-function pins
+- Boot Mode Control:
+	- GPIO0, GPIO1, GPIO2, and GPIO46 at reset determine the boot mode after the reset is released.
+	- SPI Boot mode, Joint Download Boot mode, SPI Download Boot mode (don't really knwo if this matters yet)
+	- Wi-Fi and Bluetooth LE can work only when CPU_CLK uses PLL_CLK as its clock source.
+
+Pins: 
+- GPIO26–32: BIG NO-NO (SPI flash/PSRAM, base)
+- GPIO33–37: ALSO BIG NO-NO (Octal PSRAM extension)
+	
+
+
+8/26/2026
+- Installed the correct driver, the FTDI VCP driver. Learned that for this kind of computer/windows tinkering, search it up on google, familiarize yourself with the problem, and then use ur brain, instead of blindly following claude
+- Successfully built and uploaded test code (on-board LED gradual change color)
+- Not that much progress because busy but at least set myself up so that I can actually code on the chip tmr.
+
+
+8/29/2026
+MAX98357A Pinout:
+- I2S pins:
+	- LRC: Left/Right Clock - this is the pin that tells the amplifier when the data is for the left channel and when its for the right channel
+	- BCLK: clock for reading data on the data pin
+	- DIN: Data In - both left and right data are sent on this pin
+- Other pins:
+	- GAIN: Gain pin reads its voltage which corresponds to a specific gain. Connect to GND/Nothing/Vin with resistors to change voltage (look at table for details)
+	- SD: pin reads voltage to chose mode: shut down, left, right, or left/2 + right/2
+	
+- The ESP32-S3 has a GPIO Matrix — a crossbar switch between the chip's internal peripherals (I2S, SPI, UART, etc.) and the physical GPIO pins. Almost any usable GPIO can be assigned to almost any peripheral signal.
+- Instead of I2S being hardwired to specific pins, you configure in software which GPIOs map to BCLK, LRC (WS), and DIN. 
+- Today, I wired it all together but when uploaded with the code, it didn't work :(
+- Tmr, I need to look at the MAX98357A specs, how it works, what type of data it expects to recieve. Then, how exactly does I2S works on the esp32-s3, how the data transfers. Then do some sort of test send and receiving data to the MAX98357A and read the data using multimeter.
