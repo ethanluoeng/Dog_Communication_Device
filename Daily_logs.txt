@@ -49,3 +49,14 @@ MAX98357A Pinout:
 - Instead of I2S being hardwired to specific pins, you configure in software which GPIOs map to BCLK, LRC (WS), and DIN. 
 - Today, I wired it all together but when uploaded with the code, it didn't work :(
 - Tmr, I need to look at the MAX98357A specs, how it works, what type of data it expects to recieve. Then, how exactly does I2S works on the esp32-s3, how the data transfers. Then do some sort of test send and receiving data to the MAX98357A and read the data using multimeter.
+
+
+8/30/2026
+- I2S is a digital sound protocol that takes PCM digital audio sample data, formatted as signed two’s complement values.
+- In a PCM stream, the amplitude of the analog signal is sampled at uniform intervals, and each sample is quantized to the nearest value within a range of digital steps.
+- The bit magnitude determines the audio's volume. For 16-bit range: -32,768 to +32,767
+- Positive values push the speaker out and negative values push the speaker in! When you rapidly alternate between these two extremes, the speaker cone vibrates back and forth, moving the air to create sound.
+- PCM values themselves do not contain inherent frequency information. Frequency is created by how quickly your code feeds these values to the I2S hardware!
+- This module takes I2S digital audio input, decodes it into analog, and also amplifies it directly into a speaker.
+- Turns out, the reason why it was silent was just because of the wires. All I had to do was switch them for thicker ones and make sure the soldering connection was good. Now it produces a frequency that I can wake up the whole family with.
+
