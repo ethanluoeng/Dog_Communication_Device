@@ -62,7 +62,7 @@ MAX98357A Pinout:
 
 
 8/31/2026
-- First you gotta record yourself and then use audacity to set the rate and format (signed 16-bit PCM WAV). To change the rate, you gotta re-sample, not set-rate because that just slows the audio down and makes you sound silly lol.
+- First you gotta record yourself and then use audacity to set the rate and format (signed 16-bit PCM WAV). To change the rate, you gotta re-sample, not set-rate because that just slows the audio down and makes you sound silly. Also mix stereo down to Mono.
 - False info that Claude gave me when writing the code:
 	- Wrong component name
 	- LittleFS that it suggested doesn't even run on Windows AND PlatformIO doesn't flash filesystem images on upload anyway.
@@ -70,4 +70,8 @@ MAX98357A Pinout:
 - Next, you just set ESP32-S3 to SoftAP mode (it makes its own Wi-Fi network), Run a small web server where tapping a button sends a request that triggers the matching clip.
 - Then, connect your phone to the board's Wi-Fi, open its IP in a browser and voila!
 - Now all I need to do is UNDERSTAND THE CODE (don't want to be fully dependent on Claude), build the frame of the device, and then strap it on to my dog :)
+- I just learned, a good way to picture the electric circuit on MCUs or just in general is think of all the VCC lines as a single conductive plate. They are all connected and if one spot is getting 5v voltage, they all have 5v voltage. There really is no input/output!
+- Same with GND, think of all of them as another plate, just that their voltage is always 0.
 
+9/1/2026
+- 

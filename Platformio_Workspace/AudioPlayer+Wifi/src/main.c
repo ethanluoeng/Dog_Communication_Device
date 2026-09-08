@@ -23,13 +23,30 @@ static const char *TAG = "dog";
 
 static float g_volume = 0.6f;   // 0.0..1.0 loudness cap
 
-extern const uint8_t singing_wav_start[] asm("_binary_singing_wav_start");
-extern const uint8_t singing_wav_end[]   asm("_binary_singing_wav_end");
+extern const uint8_t Down_wav_start[] asm("_binary_Down_wav_start");
+extern const uint8_t Down_wav_end[]   asm("_binary_Down_wav_end");
+extern const uint8_t Find_Ethan_wav_start[] asm("_binary_Find_Ethan_wav_start");
+extern const uint8_t Find_Ethan_wav_end[]   asm("_binary_Find_Ethan_wav_end");
+extern const uint8_t Sit_wav_start[] asm("_binary_Sit_wav_start");
+extern const uint8_t Sit_wav_end[]   asm("_binary_Sit_wav_end");
+extern const uint8_t Who_Let_The_Dogs_Out_wav_start[] asm("_binary_Who_Let_The_Dogs_Out_wav_start");
+extern const uint8_t Who_Let_The_Dogs_Out_wav_end[]   asm("_binary_Who_Let_The_Dogs_Out_wav_end");
+extern const uint8_t GOOD_BOY_wav_start[] asm("_binary_GOOD_BOY_wav_start");
+extern const uint8_t GOOD_BOY_wav_end[]   asm("_binary_GOOD_BOY_wav_end");
+extern const uint8_t Moo_wav_start[] asm("_binary_Moo_wav_start");
+extern const uint8_t Moo_wav_end[]   asm("_binary_Moo_wav_end");
+
+
 
 typedef struct { const char *name; const uint8_t *start; const uint8_t *end; } clip_t;
 static const clip_t clips[] = {
-    { "singing", singing_wav_start, singing_wav_end },
-    // add more: { "sit", sit_wav_start, sit_wav_end }, ...
+    { "Down", Down_wav_start, Down_wav_end },
+    { "Find-Ethan", Find_Ethan_wav_start, Find_Ethan_wav_end },
+    { "Sit", Sit_wav_start, Sit_wav_end },
+    { "Who-Let-The-Dogs-Out", Who_Let_The_Dogs_Out_wav_start, Who_Let_The_Dogs_Out_wav_end },
+    { "GOOD-BOY", GOOD_BOY_wav_start, GOOD_BOY_wav_end },
+    { "Moo", Moo_wav_start, Moo_wav_end },
+    
 };
 #define N_CLIPS (sizeof(clips)/sizeof(clips[0]))
 
