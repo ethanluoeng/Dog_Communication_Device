@@ -50,7 +50,7 @@ AudioPlayer+Wifi/
 
 | Part | Qty | Approx. cost (USD) | Purchase Link | Notes |
 |---|---|---|---|---|
-| ESP32-S3-DevKitC-1 (N16R8 clone) | 1 | $10–15 | https://www.amazon.ca/dp/B0CKXJLP4B | 16 MB flash, 8 MB octal PSRAM. Clones work fine; make sure it's the **N16R8** variant. |
+| ESP32-S3-DevKitC-1 | 1 | $10–15 | https://www.amazon.ca/dp/B0CKXJLP4B | 16 MB flash, 8 MB octal PSRAM. Clones like **N16R8** work fine |
 | MAX98357A I2S amplifier breakout | 1 | $3–6 | https://www.amazon.ca/dp/B0F1LLQ6WJ | Class-D, 3 W into 4 Ω |
 | 3 W 4 Ω speaker | 1 | $2–4 | https://www.amazon.ca/dp/B01LN8ONG4 ||
 | Jumper wires / perfboard | – | – | |
@@ -75,29 +75,25 @@ AudioPlayer+Wifi/
 
 ### Installation
 
-1. #### Clone the repository:
-```bash
-git clone https://github.com/ethanluoeng/Dog_Communication_Device.git
-cd Dog_Communication_Device
-```
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/ethanluoeng/Dog_Communication_Device.git
+   cd Dog_Communication_Device
+   ```
 
-2. #### Record and add your own audio clips
-- Use [Audacity](https://www.audacityteam.org/) or ffmpeg to convert your audio files to 16000Hz, 16-bit, mono .wav files.
-- Put the file in `audio/`.
-- Register it in **both** places:
-   - `platformio.ini`, by adding it under `board_build.embed_files`
-   - `src/CMakeLists.txt`, by adding it to `EMBED_FILES` in `idf_component_register(...)`
-- In `src/main.c`, declare the embedded symbols:
-```c
-   extern const uint8_t audio_7_wav_start[] asm("_binary_audio_7_wav_start");
-   extern const uint8_t audio_7_wav_end[]   asm("_binary_audio_7_wav_end");
-```
+2. **Record and add your own audio clips**
+   - Use [Audacity](https://www.audacityteam.org/) or ffmpeg to convert your audio files to 16000Hz, 16-bit, mono .wav files.
+   - Put the file in `audio/`.
+   - Register it in **both** places:
+      - `platformio.ini`, by adding it under `board_build.embed_files`
+      - `src/CMakeLists.txt`, by adding it to `EMBED_FILES` in `idf_component_register(...)`
+   - In `src/main.c`, declare the embedded symbols:
 
-3. #### Build & Flash on ESP32:
-```bash
-pio run                  
-pio run -t upload
-```
+3. **Build & Flash on ESP32**:
+   ```bash
+   pio run                  
+   pio run -t upload
+   ```
 
 ### Usage
 - Power on the device.
