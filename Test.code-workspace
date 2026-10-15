@@ -1,0 +1,24 @@
+{
+	"folders": [
+		{
+			"path": "Platformio_Workspace/Test"
+		},
+		{
+			"name": "PSRAM_8MB_Test",
+			"path": "Platformio_Workspace/PSRAM_8MB_Test"
+		},
+		{
+			"name": "sine-wave_tone",
+			"path": "Platformio_Workspace/sine-wave_tone"
+		},
+		{
+			"name": "Audio_clips_player",
+			"path": "Platformio_Workspace/Audio_clips_player"
+		},
+		{
+			"name": "AudioPlayer+Wifi",
+			"path": "Platformio_Workspace/AudioPlayer+Wifi"
+		}
+	],
+	"settings": {}
+}
