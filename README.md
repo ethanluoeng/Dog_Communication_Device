@@ -3,11 +3,9 @@
 <img src="Pictures/IMG_5929.jpg" width="400"> &nbsp; &nbsp; <img src="Pictures/IMG_5897.JPG" width="400">
 
 ## Intro
-Oh, the guilt I'd feel when my dog is confined inside; he lies next to the screen door, his wide longing eyes gazing out at the outdoors - the guilt is too much! I am building this project because I want my dog to be able to hangout freely in our large backyard even when everyone else is busy. 
+Oh, the guilt I feel when my dog is stuck inside! He lies by the screen door, gazing out at the backyard with wide, longing eyes... I’m building this project so he can hang out freely in our large backyard, even when everyone is busy.
 
-So far, I've built a wearable device for dogs that can play audio recordings to them from up to 100 meters away. Whatever command you want to tell your dog, you press a button on your phone and your dog will hear it and act accordingly (if they're smart enough). This also has safety benefits, such as telling your dog to stand still when they are lost. 
-
-Lastly, this project gives me an excuse to spend more quality time bothering my dog, which is time well spent.
+So far, I’ve built a wearable device for dogs that play audio recordings to them from up to 100 meters away. Press a button on your phone, your dog hears the command and (if they’re smart enough), acts on it. It also has safety benefits, such as telling your dog to stand still if they are lost.
 
 ## Overview
 The ESP32-S3 does three things simultaneously:
