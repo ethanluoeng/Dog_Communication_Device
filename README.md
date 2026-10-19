@@ -7,7 +7,7 @@ Oh, the guilt I feel when my dog is stuck inside! He lies by the screen door, ga
 
 So far, I’ve built a wearable device for dogs that play audio recordings to them from up to 100 meters away. Press a button on your phone, your dog hears the command and (if they’re smart enough), acts on it. It also has safety benefits, such as telling your dog to stand still if they are lost.
 
-## How It Works
+## 🐕 How It Works
 
 The firmware runs on ESP-IDF using separate FreeRTOS tasks:
 
@@ -16,10 +16,10 @@ The firmware runs on ESP-IDF using separate FreeRTOS tasks:
 - **Queue:** the HTTP handler pushes the request into a FreeRTOS queue. Then, it returns immediately, keeping the web page responsive while audio plays.
 - **Audio task:** waits on the queue for requests, looks up the embedded WAV, and streams the PCM samples over I2S to the amplifier.
 
-## Wiring and Schematics
+## ✏️ Wiring and Schematics
 <img src="Pictures/Schematic_V1.png" width="1000">
 
-## Bill of Materials
+## 📄 Bill of Materials
 
 | Part | Qty | Approx. cost (USD) | Purchase Link | Notes |
 |---|---|---|---|---|
@@ -29,7 +29,7 @@ The firmware runs on ESP-IDF using separate FreeRTOS tasks:
 | Jumper wires / perfboard | – | – | |
 | 3.7 V LiPo battery | 1 | $20 | https://www.amazon.ca/dp/B0F8MFGZZC | Interchangeable with other batteries |
 
-## Project Structure
+## 📂 Project Structure
 
 ```
 AudioPlayer+Wifi/
@@ -58,8 +58,12 @@ AudioPlayer+Wifi/
 ├── sdkconfig.defaults
 └── sdkconfig.esp32-s3-devkitc-1   # generated ESP-IDF config
 ```
+## 📚 Documentation
+`Daily_logs` contains the raw notes I took throughout the project, and `Organized_Project_Logs` contains those same logs organized in a logical manner.
+- [Daily Logs](Documentation/Daily_logs.txt)
+- [Organized Project Logs](Documentation/Organized_Project_Logs.pdf)
 
-## Engineering Decisions
+## 🔧 Engineering Decisions
 
 **Volume and hearing.** Dogs hear more sensitively than people do, and this device sits less than a meter from their ears. The firmware applies a software volume cap (`g_volume`) that scales samples before it reaches the amplifier. This way, even a loud recording can't play at full amplifier output. It's better to start quiet and turn it up than to accidentally startle (or hurt) the dog.
 
@@ -71,7 +75,7 @@ AudioPlayer+Wifi/
 
 **Eliminating amplifier buzz** The MAX98357A buzzes when the I2S peripheral is left running between clips. When no new samples arrive, the DMA buffers keep replaying the last bit of data that it received. The fix is to only enable the I2S channel when a clip starts, write a buffer of silence when the clip ends to avoid clipping, and disable the channel until the next clip. This keeps the speaker completely quiet when idle.
 
-## Getting Started
+## 🚀 Getting Started
 
 ### Prerequisites
 - [VSCode](https://code.visualstudio.com/)
@@ -106,11 +110,5 @@ AudioPlayer+Wifi/
 - Open a browser and go to **http://192.168.4.1**.
 - Tap a button to play that clip through the speaker.
 
-## Documentation
-`Daily_logs` contains the raw notes I took throughout the project, and `Organized_Project_Logs` contains those same logs organized in a logical manner.
-
-- [Daily Logs](Documentation/Daily_logs.txt)
-- [Organized Project Logs](Documentation/Organized_Project_Logs.pdf)
-
 ## Demo
-<video src="Pictures/Demo.mp4" controls width="600"></video>
+https://github.com/user-attachments/assets/8660b78b-6891-43ee-bf3a-571f04a13f8d
