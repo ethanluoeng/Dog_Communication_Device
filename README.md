@@ -105,3 +105,12 @@ AudioPlayer+Wifi/
 - On your phone, connect to the Wi-Fi network **`<SSID>`** (password: **`<password>`**). To change these, edit `<WIFI_SSID / WIFI_PASS>` in `src/main.c`.
 - Open a browser and go to **http://192.168.4.1**.
 - Tap a button to play that clip through the speaker.
+
+## Documentation
+`Daily_logs` contains the raw notes I took throughout the project, and `Organized_Project_Logs` contains those same logs organized in a logical manner.
+
+- [Daily Logs](Documentation/Daily_logs.txt)
+- [Organized Project Logs](Documentation/Organized_Project_Logs.pdf)
+
+## Demo
+<video src="Pictures/Demo.mp4" controls width="600"></video>
