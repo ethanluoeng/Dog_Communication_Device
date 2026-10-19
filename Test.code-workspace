@@ -18,6 +18,10 @@
 		{
 			"name": "AudioPlayer+Wifi",
 			"path": "Platformio_Workspace/AudioPlayer+Wifi"
+		},
+		{
+			"name": "Prank",
+			"path": "Platformio_Workspace/Prank"
 		}
 	],
 	"settings": {}
