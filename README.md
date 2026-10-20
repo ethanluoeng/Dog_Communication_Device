@@ -16,7 +16,7 @@ The firmware runs on ESP-IDF using separate FreeRTOS tasks:
 - **Queue:** the HTTP handler pushes the request into a FreeRTOS queue. Then, it returns immediately, keeping the web page responsive while audio plays.
 - **Audio task:** waits on the queue for requests, looks up the embedded WAV, and streams the PCM samples over I2S to the amplifier.
 
-## ✏️ Wiring and Schematics
+## ✏️ Wiring and Schematic
 <img src="Pictures/Schematic_V1.png" width="1000">
 
 ## 📄 Bill of Materials
