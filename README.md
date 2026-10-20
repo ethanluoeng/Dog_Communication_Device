@@ -7,7 +7,7 @@ Oh, the guilt I feel when my dog is stuck inside! I’m building this project so
 
 So far, I’ve built a wearable device for dogs that play audio recordings to them from up to 100 meters away. Press a button on your phone, your dog hears the command and (if they’re smart enough), acts on it. It also has safety benefits, such as telling your dog to stand still if they are lost.
 
-## 🐕 How It Works
+## How It Works
 
 The firmware runs on ESP-IDF using separate FreeRTOS tasks:
 
