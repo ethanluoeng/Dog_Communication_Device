@@ -58,10 +58,6 @@ AudioPlayer+Wifi/
 ├── sdkconfig.defaults
 └── sdkconfig.esp32-s3-devkitc-1   # generated ESP-IDF config
 ```
-## 📚 Documentation
-`Daily_logs` contains the raw notes I took throughout the project, and `Organized_Project_Logs` contains those same logs organized in a logical manner.
-- [Daily Logs](Documentation/Daily_logs.txt)
-- [Organized Project Logs](Documentation/Organized_Project_Logs.pdf)
 
 ## 🔧 Engineering Decisions
 
@@ -74,6 +70,11 @@ AudioPlayer+Wifi/
 **Why embedded instead of LittleFS?** Clips are compiled directly into the firmware with `embed_files` instead of being stored on a LittleFS partition, because PlatformIO's LittleFS image upload doesn't work with ESP-IDF on Windows. The trade-off is that changing clips requires a reflash, but with 16 MB of flash there's plenty of room.
 
 **Eliminating amplifier buzz** The MAX98357A buzzes when the I2S peripheral is left running between clips. When no new samples arrive, the DMA buffers keep replaying the last bit of data that it received. The fix is to only enable the I2S channel when a clip starts, write a buffer of silence when the clip ends to avoid clipping, and disable the channel until the next clip. This keeps the speaker completely quiet when idle.
+
+## 📚 Documentation
+`Daily_logs` contains the raw notes I took throughout the project, and `Organized_Project_Logs` contains those same logs organized in a logical manner.
+- [Daily Logs](Documentation/Daily_logs.txt)
+- [Organized Project Logs](Documentation/Organized_Project_Logs.pdf)
 
 ## 🚀 Getting Started
 
